@@ -1,0 +1,25 @@
+.navbar {
+    background-color: #1976D2; /* Set your desired background color */
+    color: white; /* Set the text color */
+    padding: 10px; /* Add some padding for spacing */
+}
+
+.navbar-brand {
+    font-size: 24px; /* Customize the font size */
+    font-weight: bold; /* Make it bold */
+    margin-right: 16px;
+}
+
+.spacer {
+    flex-grow: 1; /* Create space between the brand and buttons */
+}
+
+.mat-button {
+    background-color: #2196F3; /* Set button background color */
+    color: white; /* Set button text color */
+    text-transform: uppercase;
+    padding: 8px 16px; /* Add padding to the buttons */
+    border: none; /* Remove the default button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+}
+

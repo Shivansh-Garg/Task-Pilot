@@ -1,0 +1,66 @@
+<!--
+<div class="task-count">
+    <mat-card class="task-count-box" *ngFor="let item of countOfTaskStatus | keyvalue " [style.background-color]="getStatusColor(item.key)">
+        <span [style.color]="'white'">{{ item.key }} : {{ item.value }}</span>
+    </mat-card>
+</div>
+-->
+<div class="task-count">
+    <button mat-button class="task-count-button" 
+            [style.background-color]= "'black'"
+            (click)="getTasks()">
+      <span [style.color]="'white'">Tasks</span>
+    </button>
+    <button mat-button class="task-count-button" *ngFor="let item of countOfTaskStatus | keyvalue" 
+            [style.background-color]="getStatusColor(item.key)" 
+            (click)="getTasksByStatusAndId(item.key)">
+      <span [style.color]="'white'">{{ item.key }} : {{ item.value }}</span>
+    </button>
+    
+  </div>
+
+<div class="task-list">
+    <mat-card class="task-card" *ngFor="let task of listOfTasks">
+        <div class="task-details">
+            <h2 class="task-name">{{task.title}}</h2>
+            <p class="task-description">{{ task.description }}</p>
+
+            <mat-divider></mat-divider>
+            <div class="task-info">
+                <div class="info-row">
+                    <span class="info-label">Due Date : </span>
+                    <span class="info-value">{{  task.dueDate | date: 'MMM d, y'}}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Employee : </span>
+                    <span class="info-value">{{  task.employeeName }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Task Priority : </span>
+                    <span class="info-value">{{  task.priority}}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Status : </span>
+                    <span class="info-value">{{  task.taskStatus }}</span>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+
+            <div class="actions">
+               
+                    <button mat-icon-button color="accent" class="view-button" routerLink="/employee/task-details/{{task.id}}">
+                        <mat-icon> visibility</mat-icon>
+                    </button> 
+                    <a mat-icon-button color="primary" class="update-button" [matMenuTriggerFor]="statusMenu">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    
+                    <mat-menu #statusMenu="matMenu">
+                        <button mat-menu-item (click)="updateStatus(task.id,'INPROGRESS')">INPROGRESS</button>
+                        <button mat-menu-item (click)="updateStatus(task.id,'COMPLETED')">COMPLETED</button>
+                    </mat-menu>
+            </div>
+        </div>
+    </mat-card>
+
+</div>
