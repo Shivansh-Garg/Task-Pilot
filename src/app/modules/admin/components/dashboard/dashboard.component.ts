@@ -60,6 +60,7 @@ export class DashboardComponent {
     this.service.deleteTask(id).subscribe((res)=>{
       this.snackbar.open("Task deleted successfully","Close",{duration: 2000});
       this.getTasks();
+      this.getTaskStatusCount();
     })
   }
 

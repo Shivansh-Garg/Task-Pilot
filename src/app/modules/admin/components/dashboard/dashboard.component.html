@@ -1,14 +1,28 @@
-<mat-divider></mat-divider>
+<div class="wrapper">
+    <div class="box">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+    </div>
+</div>
 
 <form class="search-form" [formGroup]="searchForm">
     <mat-form-field appearance="outline" class="search-input">
-        <mat-label>Enter Keyword to search</mat-label>
+        <mat-label style="color: black; ">Enter Keyword to search</mat-label>
         <input matInput formControlName="title" (input)="searchTask()">
     </mat-form-field>
 </form>
 
 
 <div class="task-count">
+    
     <button mat-button class="task-count-button" 
             [style.background-color]= "'black'"
             (click)="getTasks()">
@@ -24,6 +38,7 @@
 
 
 <div class="task-list">
+
     <mat-card class="task-card" *ngFor="let task of listOfTasks">
         <div class="task-details">
             <h2 class="task-name">{{task.title}}</h2>

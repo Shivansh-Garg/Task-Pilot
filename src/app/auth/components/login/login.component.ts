@@ -40,32 +40,39 @@ export class LoginComponent {
     }
 
     onSubmit(){
+      console.log(this.loginForm.invalid);
       if (this.loginForm.invalid) {
         this.snackbar.open("Invalid Credentials","Close",{duration : 3000, panelClass:"error-snackbar"});
           return; 
       }
-      //console.log(this.loginForm.value);
-      this.authService.login(this.loginForm.value).subscribe((res)=>{
-      //console.log(res);
-      if(res.userId != null){
-        const user = {
-          id: res.userId,
-          role: res.userRole
+      console.log(this.loginForm.value);
+      
+      this.authService.login(this.loginForm.value).subscribe(
+        (res) => {
+          console.log(res);
+          if (res.userId !== null) {
+            const user = {
+              id: res.userId,
+              role: res.userRole,
+            };
+            StorageService.saveUser(user);
+            StorageService.saveToken(res.jwt);
+      
+            if (StorageService.isAdminLoggedIn()) {
+              this.router.navigateByUrl("/admin/dashboard");
+            } else if (StorageService.isEmployeeLoggedIn()) {
+              this.router.navigateByUrl("/employee/dashboard");
+            }
+            this.snackbar.open("Login Successful", "Close", { duration: 3000 });
+          } else {
+            this.loginError = true;
+            console.log(this.loginError);
+            this.snackbar.open("Invalid Credentials", "Close", { duration: 3000, panelClass: "error-snackbar" });
+          }
+        },
+        (error) => {
+          this.snackbar.open("Invalid Credentials", "Close", { duration: 3000, panelClass: "error-snackbar" });
         }
-        StorageService.saveUser(user);
-        StorageService.saveToken(res.jwt);
-
-        if(StorageService.isAdminLoggedIn()){
-          this.router.navigateByUrl("/admin/dashboard");
-        }else if(StorageService.isEmployeeLoggedIn()){
-          this.router.navigateByUrl("/employee/dashboard");
-        }
-        this.snackbar.open("Login Successfull ","Close",{duration: 3000});
-      }else{
-        this.loginError = true; 
-        console.log(this.loginError);
-        this.snackbar.open("Invalid Credentials","Close",{duration : 3000, panelClass:"error-snackbar"});
-      }
-     })
+      );
     }
 }

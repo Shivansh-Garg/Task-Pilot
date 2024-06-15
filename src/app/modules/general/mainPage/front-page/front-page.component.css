@@ -1,7 +1,9 @@
 body{
     margin:0;
     padding: 0;
+    background: linear-gradient(90deg, rgba(2,0,.6,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
+
 
 .wrapper{
     position: absolute;
@@ -9,27 +11,24 @@ body{
     height: 100%;
     overflow: hidden;
     background: linear-gradient(90deg, rgba(2,0,.6,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+
 }
 
-h2{
-    font-family: poppins;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 50px;
+h1{
     font-weight: bold;
-    color: #fff;
+    color: white;
     text-transform: uppercase;
     margin: 0;
+    letter-spacing: 1px;
 }
 
 .box div{
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: transparent;
+    background: linear-gradient(90deg, rgba(2,0,.6,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
     border: 6px solid rgba(255,255,255,0.8);
+    box-shadow: 5px 5px 5px 2px black;
 }
 
 .box div:nth-child(1){
@@ -103,3 +102,73 @@ h2{
     }
     
 }
+
+
+
+.front-container {
+   
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 600px  2fr;
+    background: linear-gradient(90deg, rgba(2,0,.6,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+
+    .front-card {
+    background-color: transparent;
+    padding: 16px;
+    text-align: justify; 
+    z-index: 1;
+    }
+
+    .card-details {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+        color: white;
+        padding-right: 40px;
+        z-index: 1;
+    }
+    
+    
+}
+.images{
+    width: 100vh;
+    height: 300px;
+    background-image: url(../../../../../assets/image1.png);  
+    background-size: 100% 100%;
+    position:relative;
+    padding-left: 25px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 5px black;
+    animation: slider 20s infinite linear;
+}
+
+.second-image{
+    width: 80vh;
+    height: 300px;
+    background-image: url(../../../../../assets/image8.png);  
+    background-size: 100% 100%;
+    position:relative;
+    padding-left: 25px;
+    padding-top: 25px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 5px black;
+}
+
+@keyframes slider {
+    0%{
+        background-image: url(../../../../../assets/image1.png);
+    }
+    20%{
+        background-image: url(../../../../../assets/image6.png);  
+    }
+    40%{
+        background-image: url(../../../../../assets/image3.png); 
+    }
+    60%{
+        background-image: url(../../../../../assets/image4.png); 
+    }
+    80%{
+        background-image: url(../../../../../assets/image5.png); 
+    }
+}
+

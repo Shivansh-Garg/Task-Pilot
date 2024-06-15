@@ -1,3 +1,18 @@
+<div class="wrapper">
+    <div class="box">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+    </div>
+</div>
+
 <div *ngIf="taskData" class="card-container" >
 
 <div class="task-list" *ngIf="taskData">
@@ -29,10 +44,8 @@
     </mat-card>
 </div>
 
-<div >
-    <mat-card class="comment-list" *ngFor="let comment of listOfComments" >
-    <mat-card class="comment-card">
-      <div>
+<div class="comment-list" *ngFor="let comment of listOfComments" [ngClass]="{'admin-comment': comment.postedBy === 'admin'}" >
+      <div class="comment-card" >
         <div class="info-row">
             <span class="info-label">Posted at : </span>
             <span class="info-value">{{  comment.createdAt | date: 'MMM d, y'}}</span>
@@ -45,28 +58,23 @@
             <span class="info-value">{{  comment.postedBy}}</span>
         </div>
       </div>
-    </mat-card>
-</mat-card>
 </div>
 
-
-
-<mat-card class="comment-card" >
-    <mat-card-content>
-      <h4><b>Enter the comment</b></h4>
-      <div>
-        <form [formGroup]="commentForm">
-            <mat-form-field appearance="fill">
-                <mat-label>Content</mat-label>
-                <textarea matInput formControlName="content"></textarea>
-                
-            </mat-form-field>
-        <button mat-raised-button color="primary" style="float: right;" [disabled]="!commentForm.valid"
-                (click)="publishComment()">Add Comment</button>
-        </form> 
-      </div>
-    </mat-card-content>
-</mat-card>
-
+<div class="create-comment" >
+    
+    <div>
+        <div class="comment-form">
+            <h4><b>Enter the comment</b></h4>
+            <form [formGroup]="commentForm" >
+                <mat-form-field appearance="fill">
+                    <mat-label>Content</mat-label>
+                    <textarea matInput formControlName="content"></textarea>
+                </mat-form-field>
+            <button  mat-raised-button color="primary" style="float: bottom;" [disabled]="!commentForm.valid"
+                    (click)="publishComment()">Add Comment</button>
+            </form> 
+        </div>
+    </div>  
+</div>
 
 </div>

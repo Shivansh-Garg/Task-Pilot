@@ -1,22 +1,8 @@
-<div class="wrapper">
-  <div class="box">
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-  </div>
-</div>
 
 
 <div *ngIf=" !isAdminLoggedIn && !isEmployeeLoggedIn ">
   <mat-toolbar color="primary" class="navbar">
-    <button mat-button routerLink="dashboard" routerLinkActive="active"><span class="navbar-brand">Task Pilot</span></button>
+    <button mat-button routerLink="" routerLinkActive="active"><span class="navbar-brand">Task Pilot</span></button>
       <span class="spacer"></span>
       <button mat-button routerLink="signup" routerLinkActive="active">Register</button>
       <button mat-button routerLink="login" routerLinkActive="active">Login</button>
@@ -28,6 +14,7 @@
     <span class="navbar-brand">Manager</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-button routerLink="/admin/chart" routerLinkActive="active">Chart</button>
     <button mat-button routerLink="/admin/task" routerLinkActive="active">Post Task</button>
     <button mat-button (click)="logout()" routerLinkActive="active">Logout</button>
   </mat-toolbar>
@@ -38,6 +25,7 @@
     <span class="navbar-brand">Employee</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/employee/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-button routerLink="/employee/chart" routerLinkActive="active">Chart</button>
     <button mat-button (click)="logout()" routerLinkActive="active">Logout</button>
   </mat-toolbar>
 </div>

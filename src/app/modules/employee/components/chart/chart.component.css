@@ -1,70 +1,49 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    height: 100vh;
-  }
-  .form-container{
-    background-color: transparent;
-  }
-  mat-card{
-    max-width: 550px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    height: 98vh;
-    background: linear-gradient(to right, #c6ffdd, #fbd786, lightblue);
 
-    @media screen and (max-width: 700px){
-      max-width: 90%
-    }
+.container {
+    display: grid;
+    grid-template-columns: 1fr  1fr;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 20px;
   }
   
-  mat-card-title{
-    text-align: center;
-    font-size: 24px;
+  
+  .doughnut-container{
+    z-index: 1;
+    justify-content: center; 
+    border: 1px solid #ccc;
+    max-width: 70%;
+    box-shadow: 0 2px 4px 5px rgba(0, 0, 0, 0.329);
+  }
+  
+  .bar-container {
+    justify-content: left; 
+    border: 1px solid #ccc;
+    z-index: 1;
+    box-shadow: 0 2px 4px 5px rgba(0, 0, 0, 0.329);
+  }
+  
+
+  h2 {
+    font-size: 18px;
     margin-bottom: 10px;
+    text-align: center;
+    text-decoration: solid;
   }
-  
-  form{
-      display: flex;
-      max-width: 450px;
-      width: 100%;
-      flex-direction: column;
-      align-items:center;
-      background-color: transparent;
-  }
-  
-  mat-form-field{
-      width: 100%;
-      margin-bottom: 10px;
-  }
-  
-  button{
-    width: 50%;
-  }
-  
-  @media screen and (max-width: 500px){
-    mat-card-title{
-      font-size: 20px;
-    }
-  
-    mat-form-field{
-      margin-bottom: 10px;
-    }
-  }
-  
-  .error-snackbar{
-    background-color: #f44336 !important;
-  }
-  
-.wrapper{
+
+  #barchart {
+    width: 700px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+  .wrapper{
     position: absolute;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: linear-gradient(to right, #c6ffdd, #fbd786, lightblue);
+    background:  linear-gradient(to right, #87CEEB, #D3D3D3);
+
 }
 
 h1{
@@ -72,6 +51,7 @@ h1{
     color: white;
     text-transform: uppercase;
     margin: 0;
+    letter-spacing: 1px;
 }
 
 .box div{
@@ -79,7 +59,7 @@ h1{
     width: 60px;
     height: 60px;
     background-color: transparent;
-    border: 6px solid rgba(231, 35, 35, 0.8);
+    border: 6px solid rgba(75, 218, 39, 0.8);
     box-shadow: 5px 5px 5px 2px black;
 }
 
@@ -154,3 +134,4 @@ h1{
     }
     
 }
+  

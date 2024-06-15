@@ -58,7 +58,7 @@ export class UpdateTaskComponent {
       
     this.adminService.updateTask(this.id , this.updateTaskForm.value).subscribe((res) => {
       if(res.id != null){
-        this.snackBar.open("task updates successfully","Close",{duration:2000});
+        this.snackBar.open("task updated successfully","Close",{duration:2000});
         this.router.navigateByUrl("/admin/dashboard");
       }else{
         this.snackBar.open("Something went wrong","ERROR",{duration:2000});

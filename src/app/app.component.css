@@ -23,3 +23,8 @@
     cursor: pointer; /* Add a pointer cursor on hover */
 }
 
+body{
+    margin:0;
+    padding: 0;
+}
+

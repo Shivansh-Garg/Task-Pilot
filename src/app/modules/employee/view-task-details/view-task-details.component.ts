@@ -24,6 +24,7 @@ export class ViewTaskDetailsComponent {
     private snackbar: MatSnackBar
   ){
     this.getAllComments();
+    
   }
 
   ngOnInit(){
